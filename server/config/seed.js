@@ -5,30 +5,30 @@
 
 'use strict';
 
-var Thing = require('../api/thing/thing.model');
+// var Thing = require('../api/thing/thing.model');
 var User = require('../api/user/user.model');
-
-Thing.find({}).remove(function() {
-  Thing.create({
-    name : 'Development Tools',
-    info : 'Integration with popular tools such as Bower, Grunt, Karma, Mocha, JSHint, Node Inspector, Livereload, Protractor, Jade, Stylus, Sass, CoffeeScript, and Less.'
-  }, {
-    name : 'Server and Client integration',
-    info : 'Built with a powerful and fun stack: MongoDB, Express, AngularJS, and Node.'
-  }, {
-    name : 'Smart Build System',
-    info : 'Build system ignores `spec` files, allowing you to keep tests alongside code. Automatic injection of scripts and styles into your index.html'
-  },  {
-    name : 'Modular Structure',
-    info : 'Best practice client and server structures allow for more code reusability and maximum scalability'
-  },  {
-    name : 'Optimized Build',
-    info : 'Build process packs up your templates as a single JavaScript payload, minifies your scripts/css/images, and rewrites asset names for caching.'
-  },{
-    name : 'Deployment Ready',
-    info : 'Easily deploy your app to Heroku or Openshift with the heroku and openshift subgenerators'
-  });
-});
+var Resume = require('../api/resume/resume.model');
+// Thing.find({}).remove(function() {
+//   Thing.create({
+//     name : 'Development Tools',
+//     info : 'Integration with popular tools such as Bower, Grunt, Karma, Mocha, JSHint, Node Inspector, Livereload, Protractor, Jade, Stylus, Sass, CoffeeScript, and Less.'
+//   }, {
+//     name : 'Server and Client integration',
+//     info : 'Built with a powerful and fun stack: MongoDB, Express, AngularJS, and Node.'
+//   }, {
+//     name : 'Smart Build System',
+//     info : 'Build system ignores `spec` files, allowing you to keep tests alongside code. Automatic injection of scripts and styles into your index.html'
+//   },  {
+//     name : 'Modular Structure',
+//     info : 'Best practice client and server structures allow for more code reusability and maximum scalability'
+//   },  {
+//     name : 'Optimized Build',
+//     info : 'Build process packs up your templates as a single JavaScript payload, minifies your scripts/css/images, and rewrites asset names for caching.'
+//   },{
+//     name : 'Deployment Ready',
+//     info : 'Easily deploy your app to Heroku or Openshift with the heroku and openshift subgenerators'
+//   });
+// });
 
 User.find({}).remove(function() {
   User.create({
@@ -44,6 +44,56 @@ User.find({}).remove(function() {
     password: 'admin'
   }, function() {
       console.log('finished populating users');
+    }
+  );
+});
+
+Resume.find({}).remove(function() {
+  User.create({
+      firstName: "Ben",
+      lastName: "Halverson",
+      jobTitle: "Developer",
+      email: "benhalverson@me.com",
+      phone: 4087723986,
+      summary: "rockstar developer",
+      desiredPosition: "Web Developer",
+      typeOfEmployment: "Contract",
+      authorizationToWork: Boolean,
+      salaryRange: 80000,
+      profileVisibility: "Public",
+      location: {
+        address1: "46684 Windmill Dr",
+        address2: null,
+        city: "Fremont",
+        state: "CA",
+        zipCode: 94539,
+      },
+      profiles:[{
+        network: "twitter", // twitter, facebook etc
+        username: "benhalverson",
+        url: "twitter.com/benhalverson"
+      }
+      ],
+      work:[{
+        companyName: "BayArea Films",
+        position: "Founder",
+        startDate: 20140808,
+        endDate: Date,
+        summary: "Video Guy"
+      }],
+      skills:[{
+        skillName: "Coding",
+        experienceLevel: 1,
+        selfRating: 3
+      }],
+      education:[{
+        institutionName: "De Anza",
+        highestDegree: "Some college",
+        city: "Cupertino",
+        state: "CA"
+      }]
+    }, function() {
+      console.log('finished adding a resume');
     }
   );
 });

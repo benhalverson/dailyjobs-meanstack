@@ -3,7 +3,7 @@
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
-var ProfileSchema = new Schema({
+var ResumeSchema = new Schema({
   firstName: String,
   lastName: String,
   jobTitle: String,
@@ -48,4 +48,4 @@ var ProfileSchema = new Schema({
   }]
 });
 
-module.exports = mongoose.model('Profile', ProfileSchema);
+module.exports = mongoose.model('Resume', ResumeSchema);
