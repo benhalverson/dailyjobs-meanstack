@@ -5,7 +5,17 @@ angular.module('dailyjobsAppApp')
     $scope.menu = [{
       'title': 'Home',
       'link': '/'
-    }];
+    },
+    {
+      'title': 'Pricing',
+      'link': '/pricing'
+    },
+    {
+      'title': 'Search',
+      'link': '/search'
+    }
+
+    ];
 
     $scope.isCollapsed = true;
     $scope.isLoggedIn = Auth.isLoggedIn;
