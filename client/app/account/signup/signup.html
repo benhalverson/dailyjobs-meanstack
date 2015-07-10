@@ -3,29 +3,37 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
-      <h1>Sign up</h1>
-    </div>
-    <div class="col-sm-12">
       <form class="form" name="form" ng-submit="register(form)" novalidate>
 
-        <div class="form-group" ng-class="{ 'has-success': form.name.$valid && submitted,
-                                            'has-error': form.name.$invalid && submitted }">
-          <label>Name</label>
+        <div class="form-group" ng-class="{ 'has-success': form.firstName.$valid && submitted,
+                                            'has-error': form.firstName.$invalid && submitted }">
 
-          <input type="text" name="name" class="form-control" ng-model="user.name"
-                 required/>
-          <p class="help-block" ng-show="form.name.$error.required && submitted">
-            A name is required
+
+          <input type="text" name="name" class="form-control" ng-model="user.firstName"
+                 required placeholder="FIRST NAME"/>
+          <p class="help-block" ng-show="form.firstName.$error.required && submitted">
+            Please enter your first name.
+          </p>
+        </div>
+        <div class="form-group" ng-class="{ 'has-success': form.lastName.$valid && submitted,
+                                            'has-error': form.lastName.$invalid && submitted }">
+
+
+          <input type="text" name="name" class="form-control" ng-model="user.lastName"
+                 required placeholder="LAST NAME"/>
+          <p class="help-block" ng-show="form.lastName.$error.required && submitted">
+            Please enter your last name.
           </p>
         </div>
 
         <div class="form-group" ng-class="{ 'has-success': form.email.$valid && submitted,
                                             'has-error': form.email.$invalid && submitted }">
-          <label>Email</label>
+
 
           <input type="email" name="email" class="form-control" ng-model="user.email"
                  required
-                 mongoose-error/>
+                 mongoose-error
+                 placeholder="EMAIL"/>
           <p class="help-block" ng-show="form.email.$error.email && submitted">
             Doesn't look like a valid email.
           </p>
@@ -39,12 +47,13 @@
 
         <div class="form-group" ng-class="{ 'has-success': form.password.$valid && submitted,
                                             'has-error': form.password.$invalid && submitted }">
-          <label>Password</label>
+
 
           <input type="password" name="password" class="form-control" ng-model="user.password"
                  ng-minlength="3"
                  required
-                 mongoose-error/>
+                 mongoose-error
+                 placeholder="PASSWORD"/>
           <p class="help-block"
              ng-show="(form.password.$error.minlength || form.password.$error.required) && submitted">
             Password must be at least 3 characters.
@@ -54,13 +63,15 @@
           </p>
         </div>
 
-        <div class="form-group" ng-class="{ 'has-success': form.email.$valid && submitted,
-                                            'has-error': form.email.$invalid && submitted }">
-          <label>Phone</label>
+        <div class="form-group" ng-class="{ 'has-success': form.phone.$valid && submitted,
+                                            'has-error': form.phone.$invalid && submitted }">
 
-          <input type="tel" name="telephone" class="form-control" ng-model="user.phone"
+
+          <input type="number" name="phone" class="form-control" ng-model="user.phone"
                  required
-                 mongoose-error/>
+                 mongoose-error
+                 placeholder="PHONE xxx-xxx-xxxx"
+                 />
           <p class="help-block" ng-show="form.phone.$error.phone && submitted">
             Doesn't look like a valid phone number
           </p>
@@ -74,11 +85,12 @@
 
         <div class="form-group" ng-class="{ 'has-success': form.city.$valid && submitted,
                                             'has-error': form.city.$invalid && submitted }">
-          <label>City</label>
+
 
           <input type="text" name="city" class="form-control" ng-model="user.city"
                  required
-                 mongoose-error/>
+                 mongoose-error
+                 placeholder="CITY"/>
           <p class="help-block" ng-show="form.city.$error.city && submitted">
             Doesn't look like a valid city
           </p>
@@ -92,10 +104,10 @@
 
 
         <div>
-          <button class="btn btn-inverse btn-lg btn-login" type="submit">
+          <button class="btn btn-inverse btn-sm btn-login" type="submit">
             Sign up
           </button>
-          <a class="btn btn-default btn-lg btn-register" href="/login">
+          <a class="btn btn-default btn-sm btn-register" href="/login">
             Login
           </a>
         </div>
@@ -103,13 +115,13 @@
         <hr>
         <div>
           <a class="btn btn-facebook" href="" ng-click="loginOauth('facebook')">
-            <i class="fa fa-facebook"></i> Connect with Facebook
+            <i class="fa fa-facebook"></i>
           </a>
           <a class="btn btn-google-plus" href="" ng-click="loginOauth('google')">
-            <i class="fa fa-google-plus"></i> Connect with Google+
+            <i class="fa fa-google-plus"></i>
           </a>
           <a class="btn btn-twitter" href="" ng-click="loginOauth('twitter')">
-            <i class="fa fa-twitter"></i> Connect with Twitter
+            <i class="fa fa-twitter"></i>
           </a>
         </div>
       </form>
