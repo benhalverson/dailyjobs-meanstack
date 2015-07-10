@@ -12,7 +12,11 @@ angular.module('dailyjobsAppApp')
         Auth.createUser({
           name: $scope.user.name,
           email: $scope.user.email,
-          password: $scope.user.password
+          password: $scope.user.password,
+          phone: $scope.user.phone,
+          city: $scope.user.city,
+          state: $scope.user.state,
+          zipcode: $scope.user.zipcode
         })
         .then( function() {
           // Account created, redirect to home

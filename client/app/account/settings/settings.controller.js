@@ -18,4 +18,9 @@ angular.module('dailyjobsAppApp')
         });
       }
 		};
+
+    console.log($scope.user);
   });
+  // .controller('testCtrl', function($scope, User, Auth){
+  //   console.log($scope.user);
+  // });
